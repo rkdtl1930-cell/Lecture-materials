@@ -1,0 +1,348 @@
+# 파일명 : 04_control.py
+# %%
+# 1. 입출력 함수
+# 입력 ( input() 함수 )
+print("숫자를 입력하세요")
+num1 = input()
+# 출력 ( print(문자열) 함수 )
+print(f'입력한 숫자는 {num1}입니다.')
+# print() 함수의 속성 ( sep / end )
+print(1,2,3,4,5) # 여러개의 문자열을 입력( 문자열 사이에 공백 )
+# sep : 문자열 사이에 넣을 구분자를 지정 기본값(" "공백) ( separate - 분리된 )
+print(1,2,3,4,5, sep='-') # sep 속성은 문자열 사이에 넣을 구분자
+# end : print문의 마지막에 넣을 문자열을 작성 기본값(\n - 이스케이프문자,줄바꿈)
+print(1)
+print(2)
+print(3)
+print(1, end=" ")
+print(2, end=" ")
+print(3, end=" ")
+# %%
+# 화씨온도(f)를 입력 받아서 섭씨온도(c)로 변경하기
+# 섭씨온도 출력할 때, 소수점 2자리까지만 보이게
+# 화씨 = (섭씨 * 1.8) + 32
+print("화씨 온도를 입력하세요.")
+f = input()
+c = (float(f) - 32) / 1.8
+print(f"화씨온도 : {f}")
+print(f"섭씨온도 : {c:0.2f}")
+# %%
+# 조건문 ( if-elif-else )
+# 특정한 조건에 충족할 때 동작할 명령을 작성
+# 조건문 사용 ( 만약 돈이 5000원 넘게 있으면, 택시를 타라 아니면 걸어가라 를 출력)
+money = 50000
+if money > 5000:
+  print("택시를 타고 가라")
+else:
+  print("걸어가라")
+
+# 여러가지 조건이 있을 때 조건문 사용
+# 5000원 넘으면 택시 / 3000원 넘으면 버스 / 3천원 미만이면 튼튼한 두 다리
+money = 500
+if money > 5000:
+  print("택시")
+elif money > 3000:
+  print("버스")
+else:
+  print("튼튼한 두 다리")
+
+# 비교 연산자 ( > , < , >= , <= , == , != , is, is not )
+# (not) in = 리스트, 튜플, 문자열 등에 포함되느냐 ? 안되느냐 ?
+list1 = [1, 2, 3]
+a = 4
+if a in list1:
+  print("포함됩니다.")
+else:
+  print("포함되지 않습니다.")
+
+# 조건부 표현식 ( 조건 1개일 때, 한 줄에 작성하는 조건문 )
+# 조건부 표현식을 사용하지 않을 때
+score = 100
+if score >= 60:
+  message = "합격"
+else:
+  message = "불합격"
+print(message)
+# 위 조건문을 조건부 표현식을 사용할 때
+message1 = "합격1" if score >= 60 else "불합격1"
+print(message1)
+# %%
+# 시험점수(score)를 입력받아서 등급(grade)을 출력하라
+# 90점 이상 = A
+# 80~89점 = B
+# 70~79점 = C
+# 60~69점 = D
+# 60점 미만 = F
+print("시험점수를 입력하세요")
+score = input() 
+if int(score) >= 90:
+  print("A")
+elif int(score) >= 80 and int(score) < 90:
+  print("B")
+elif int(score) >= 70 and int(score) < 80:
+  print("C")
+elif int(score) >= 60 and int(score) < 70:
+  print("D")
+else:
+  print("F")
+# %%
+# 태어난 년도를 입력받아 어떤 종류의 학생인지 맞히는 프로그램
+# 나이 = 2025 - 태어난연도 + 1 로 계산
+# 20 이상 26 이하 = 대학생
+# 17 이상 20 미만 = 고등학생
+# 14 이상 17 미만 = 중학생
+# 08 이상 14 미만 = 초등학생
+# 그 외에는 '학생이 아닙니다' 출력
+print("태어난 연도를 입력하세요.")
+year = input()
+age = 2025 - int(year) + 1
+if age >= 20 and age <= 26:
+  print("대학생 입니다.")
+elif age >= 17 and age < 20:
+  print("고등학생 입니다.")
+elif age >= 14 and age < 17:
+  print("중학생 입니다.")
+elif age >= 8 and age < 14:
+  print("초등학생 입니다.")
+else:
+  print("학생이 아닙니다.")
+# %%
+# 반복문 ( while )
+# while 문은 조건이 참이면 문장을 수행하는 반복문
+#       문장을 다 수행하면 다시 조건을 확인하고 그 조건이 참이라면 또 문장을 수행한다.
+# while문 작성법 예시 ( 10번찍어 안넘어가는 나무 없다. 출력)
+treeHit = 0
+while treeHit < 10:
+  treeHit = treeHit + 1
+  print(f"나무를 {treeHit}번 찍었습니다.")
+  if treeHit == 10:
+    print("나무가 넘어갑니다.")
+# 반복문을 빠져나가기 break ( 항상 돈이 있을 때 커피 자판기 품절 종료 )
+coffee = 10
+money = 300
+# while의 조건은 money인데 money가 300으로 고정이니 항상 true가 된다.(무한 루프)
+while money:
+  print("돈을 받았으니 커피를 줍니다.")
+  coffee = coffee - 1
+  print(f"남은 커피의 양은 {coffee}입니다.")
+  if coffee == 0:
+    print("커피가 품절되었습니다.")
+    break;
+# 반복문 실행 문장을 skip 하고 반복문의 처음으로 돌아가기 continue
+a = 0
+while a < 10:
+  a = a + 1
+  if a % 2 == 0: continue
+  print(a)
+# %%
+# 처음 보여줄 화면
+prompt = '''
+1. ADD
+2. Minus
+3. Devide
+4. Mul
+5. Quit
+Enter number :'''
+# 각 번호에 맞게 선택하면 2개의 숫자를 입력받아서
+# 각 번호에 맞게 계산하는 프로그램을 작성
+# 단, 5번을 입력하면 프로그램이 종료되게 한다.
+selectNum = -1
+while selectNum != '5':
+  print(prompt)
+  selectNum = input()
+  if selectNum != '5':
+    canSelectNum = ['1', '2', '3', '4']
+    if selectNum in canSelectNum:
+      print("첫 번째 숫자를 입력하세요.")
+      num1 = input()
+      print("두 번째 숫자를 입력하세요.")
+      num2 = input()
+      if selectNum == '1':
+        print(f"{num1} + {num2} = {int(num1) + int(num2)}")
+      elif selectNum == '2':
+        print(f"{num1} - {num2} = {int(num1) - int(num2)}")
+      elif selectNum == '3':
+        print(f"{num1} / {num2} = {int(num1) / int(num2)}")
+      elif selectNum == '4':
+        print(f"{num1} x {num2} = {int(num1) * int(num2)}")
+    else:
+      print("번호를 잘못입력했습니다. 다시 입력해주세요.")
+  else :
+    print("프로그램을 종료하겠습니다.")
+# %%
+# 입력 받은 숫자(num)에서 입력받은 숫자(userNum) 빼서 0 이하로 만들기
+# ex )  처음 입력받은 숫자 num = 100 이다 -> 100에서 몇을 뺄까요 ?
+#       다음 입력 받는 숫자 userNum = 50 -> 50 에서 몇을 뺄까요 ?
+#       다음 입력 받는 숫자 userNum = 50 -> 1보다 작아졌습니다. 프로그램을 종료합니다.
+
+print("몇에서 빼기 시작할까요 ?")
+num = input()
+num = int(num)
+while num > 0:
+  print(f"{num}에서 몇을 뺄까요? 1보다 작아지면 종료합니다.")
+  userNum = input()
+  num -= int(userNum)
+  if num < 1 :
+    print("1보다 작아졌습니다. 프로그램을 종료합니다.")
+# %%
+# 반복문 - for 문
+# 특정 횟수 또는 특정 범위를 지정하여 반복을 수행
+# 리스트, 튜플, 문자열 등으로 for문을 사용
+a = [1, 2, 3, 4]
+# a 리스트 요소가 순서대로 하나씩 num에 대입되면서 명령문을 실행
+for num in a:
+  print(num)
+# 다양한 for문의 사용
+a = [('a','b'), ('c','d')]
+for (first, last) in a:
+  print(f"first : {first} / last : {last}")
+
+# range 함수를 사용해서 범위를 지정하는 for문
+# range( start, end, step ) : start 부터 end-1까지 범위 지정, step은 증감량
+# 아래의 예제는 1 부터 10까지 2칸씩 출력한다.
+for i in range(1, 11, 2):
+  print(i)
+
+# 리스트 컴프리헨션 : 리스트를 만들 때 대괄호 안에 for문을 사용해서 만들기
+# 작성법 : 리스트변수명 = [표현식 for 항목1 in 반복가능객체 if 조건문1
+#                               for 항목2 in 반복가능객체 if 조건문2
+#                               for 항목n in 반복가능객체 if 조건문n]
+# 리스트 컴프리헨션 사용 x 
+a = [1,2,3,4]
+result = []
+for num in a:
+  result.append(num*3)
+print(result)
+# 리스트 컴프리헨션 사용 o
+result = [num*3 for num in a]
+print(result)
+# 리스트 컴프리헨션 for문과 if문 같이 사용
+# a리스트에서 요소를 하나씩 뽑아와서 num%2==0 인 num만 *3 해서 result에 넣기
+result = [num*3 for num in a if num%2==0]
+print(result)
+# 리스트 컴프리헨션 여러 번 사용하기
+result = [x * y for x in range(2,10)
+                for y in range(1,10)]
+print(result)
+# %%
+for i in range(2,10):
+  for j in range(1,10):
+    print(f"{i} * {j} = {i*j}")
+# 1번
+for line in range(1,6):
+  for star in range(1, line+1):
+    # star = 변수, for는 반복문
+    print("*", end="") # print 함수가 range만큼 반복을 한다. star 랑은 별개.
+  print()
+
+print()
+
+# 2번
+for line in range(1,6):
+  for star in range(line, 6):
+    print("*", end="")
+  print()
+
+# 3번
+for line in range(1,6):
+  for star in range(1,6):
+    if line + star >= 6:
+      print("*", end="")
+    else:
+      print(" ", end="")
+  print()
+
+print()
+# 4번
+# line 이 star 보다 크면 공백처리 / 아니면 별 처리
+for line in range(1,6):
+  for star in range(1,6):
+    if line > star:
+      print(" ", end="")
+    else:
+      print("*", end="")
+  print()
+
+# %%
+# 학생 점수를 계속 입력받아서 list 에 저장
+# 점수를 다 작성했을 땐 end를 입력하면 입력 종료
+# end가 입력된다면 저장된 list의 점수들을 모두 더해서 평균을 구한다.
+# while , for , if 모두 사용.
+gradeList = []
+while True:
+  i = 1
+  print("------------------------------------")
+  print(f"학생{i}의 점수를 입력하세요. 입력 완료시 end 입력")
+  grade = input()
+  canGrade = [i for i in range(0,101)]
+  if grade != 'end':
+    if int(grade) in canGrade:
+      print(f"학생{i}의 점수 : {grade}")
+      gradeList.append(int(grade))
+      i += 1
+    else:
+      print("잘못된 점수(0~100)입니다. 다시 입력해주세요.")
+      continue
+  else :
+    break
+
+sum = 0
+
+for studentGrade in gradeList:
+  sum += studentGrade
+
+avg = sum / len(gradeList)
+print(f"학생들의 평균은 {avg}입니다.")
+# %%
+
+# Collection 모듈
+# 1. OrderedDict : 순서를 가진 딕셔너리 
+#       원래는 딕셔너리는 순서가 없어서 불러올 때마다 순서 없이 불러왔다.
+#       현재 Python 3.7버전부터는 원래의 딕셔너리도 순서가 있다. ( 하위호환용으로 사용 )
+from collections import OrderedDict
+d = OrderedDict()
+d['x'] = 100
+d['y'] = 200
+d['z'] = 300
+d['o'] = 500
+print(d) # 저장한 순서대로 출력이 된다.
+
+# 2. defaultdict : 내가 지정한 key 값이 없을 때, 그 키에 기본값을 부여한다.
+from collections import defaultdict
+d = defaultdict(lambda: 0) # 기본값으로 0을 설정한다.
+print(d['test'])
+print(d)
+
+# 3. 딕셔너리 정렬 함수 sorted(딕셔너리변수.items(), key=함수, reverse=T/F)
+d = { 'a':10, "b":2, "c":5, "d":100 }
+sortedKey = sorted(d.items(), key=lambda item : item[0], reverse=False)
+sortedValue = sorted(d.items(), key=lambda item : item[1], reverse=False)
+print(d.items())
+print(sortedKey)
+print(sortedValue)
+
+# 4. Counter 모듈
+# 요소의 갯수를 딕셔너리 형태로 변환하는 모듈
+from collections import Counter
+text = list("Hello World Pretty Bye I want to go Home etc")
+c = Counter(text)
+print(c)
+
+text = """Lorem ipsum dolor sit amet consectetur 
+adipisicing elit. Atque sit fuga doloremque 
+facilis nemo! Illum qui, asperiores ratione ullam beatae 
+sint quam explicabo dolore delectus laudantium, alias 
+distinctio atque? Aperiam!""".lower().split()
+# text에 .lower() -> 모든 영어를 소문자로
+# text에 .split() -> 공백을 기준으로 단어를 잘라서 하나씩 list화 한다.
+
+from collections import defaultdict
+word_count = defaultdict(lambda : 0) # 기본값 0
+for word in text:
+  word_count[word] += 1
+
+print(word_count)
+word_count = sorted(word_count.items(), key=lambda item: item[1], reverse=True)
+
+for k, v in word_count:
+  print(k, v)

@@ -1,0 +1,44 @@
+<!-- 파일 이름 : form_prac2.html -->
+ <!DOCTYPE html>
+ <html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form 입력 양식2</title>
+ </head>
+ <body>
+  <!-- 1. 여러 줄의 텍스트 입력 ( textarea ) -->
+  <!-- cols : 가로로 몇 글자까지 작성
+       rows : 세로로 몇 줄까지 작성
+    -->
+  <textarea cols="40" rows="4"></textarea>
+
+  <!-- 2. 드롭다운 목록 ( select - optgroup - option ) -->
+  <!-- option 태그의 속성
+         - value : DB로 보내는 값 지정
+         - selected : 기본적으로 선택을 지정 -->
+  <!-- select 태그의 속성
+         - size : 화면에 표시할 드롭다운 항목의 개수 지정
+         - multiple : 둘 이상의 항목을 선택할 때 사용 -->
+  <select id="prod1">
+    <option value="" selected>--선택--</option>
+    <optgroup label="선물용">
+      <option value="special_3" >선물용3kg</option>
+      <option value="special_5">선물용5kg</option>
+    </optgroup>
+    <optgroup label="가정용">
+      <option value="family_3">가정용3kg</option>
+      <option value="family_5">가정용5kg</option>
+    </optgroup>
+  </select>
+
+  <!-- 3. 버튼 ( button ) -->
+  <form action="">
+    <input type="text"><br>
+    <button>버튼</button> <!--기본적으로 type을 작성하지 않으면 submit 이다.-->
+    <button type="submit">제출하기</button>
+    <button type="reset">초기화하기</button>
+    <button type="button">그냥버튼</button>
+  </form>
+ </body>
+ </html>

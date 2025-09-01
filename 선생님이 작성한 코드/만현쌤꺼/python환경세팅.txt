@@ -1,0 +1,27 @@
+<<<  파이썬 설치  >>>
+
+1. 구글에 파이썬 검색
+2. python.org 검색된 것 아래의 downloads 클릭
+3. 페이지 중간의 Download Python 3.xx.x 클릭
+4. 첫 화면 하단의 2가지 체크박스 설정 후 다운로드 진행
+5. cmd 에서 python --version 작성해서 다운받은 python 버젼이 출력이 된다면 설치 완료 !
+
+<<< 아나콘다 설치 >>>
+
+1. 구글에 아나콘다 파이썬 검색
+2. Download Anaconda Distribution 링크 클릭
+3. 우측에 이메일 작성하라고 하는데 아래에 보면 작은 글씨로 skip registration 클릭
+4. 좌측 Distribution installers 밑에 windows 클릭하고 다운로드 파일 클릭
+5. 다운로드 파일이 실행되면 Next - I agree - Just Me 선택 후 Next - 파일 저장 장소 작성 후 Next - 4가지 체크박스 중 위 3가지는 체크하고 Install
+6. Install 다 되면 next > next > 체크박스 2개 체크 해제 후 Finish
+7. cmd 창에 가서 conda --version 작성해서 다운받은 아나콘다 버전이 나온다면 설치 완료 !
+
+<<< VS CODE 세팅 >>>
+
+1. 좌측 5번째 네모네모네모 있는 부분 클릭해서 마켓 플레이스 진입
+2. 영어로 python 검색
+3. 첫번째 microsoft 에서 만든 Python 을 설치한다.
+4. 영어로 jupyter 검색
+5. 첫번째 microsoft 에서 만든 Jupyter 을 설치한다.
+6. 파이썬 폴더를 연결 시켜서 test.py 라는 파일을 만들고 
+	print("안녕하세요?")  코드를 작성후 우측 상단의 세모표시(python 파일 실행) 버튼을 눌러 확인
